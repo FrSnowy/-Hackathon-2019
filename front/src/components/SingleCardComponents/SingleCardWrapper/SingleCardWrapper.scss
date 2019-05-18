@@ -1,0 +1,9 @@
+@mixin SingleCardWrapper(
+  $className: 'single-card-wrapper'
+) {
+  .#{$className} {
+    margin-top: 40px;
+    @include Card();
+    @include FloatingCard();
+  }
+}

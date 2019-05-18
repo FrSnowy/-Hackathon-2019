@@ -19,6 +19,16 @@
 
     font-size: 16px;
 
+    &:active {
+      background-color: $hover-background-color !important;
+      border-color: $border-color !important;
+      color: $color !important;
+    }
+
+    &:focus {
+      box-shadow: 0 !important;
+    }
+
     &:hover {
       background-color: $hover-background-color;
       border-color: $border-color;

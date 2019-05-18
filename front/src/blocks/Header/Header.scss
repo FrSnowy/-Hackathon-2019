@@ -36,6 +36,10 @@
       font-family: 'Inter';
     }
 
+    .login-wrapper {
+      text-align: right;
+    }
+
     &.mobile {
       &.auth {
         .row { height: 158px; }

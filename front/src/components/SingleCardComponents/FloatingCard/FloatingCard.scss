@@ -1,0 +1,11 @@
+@mixin FloatingCard(
+  $className: 'floating-card',
+) {
+  .#{$className} {
+    @include CardHelpButton($margin: 25px 0 24px 16px);
+    @include CardDate($margin: 0 0 0 30px !important);
+    .map-frame {
+      margin-bottom: 12px;
+    }
+  }
+}

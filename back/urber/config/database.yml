@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: urber_production
+  database: urber
   username: urber
   password: <%= ENV['URBER_DATABASE_PASSWORD'] %>

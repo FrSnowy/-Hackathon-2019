@@ -1,0 +1,12 @@
+default: &default
+  host: urber.dev
+  mail_from: hi@urber.dev
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

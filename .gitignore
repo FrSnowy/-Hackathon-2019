@@ -15,3 +15,15 @@ front/yarn-error.log*
 front/.changelog
 front/.npm/
 .npm/
+
+# Back.
+
+/back/urber/.bundle
+/back/urber/log/*
+/back/urber/tmp/*
+!/back/urber/log/.keep
+!/back/urber/tmp/.keep
+/back/urber/storage/*
+!/back/urber/storage/.keep
+.byebug_history
+/back/urber/config/master.key

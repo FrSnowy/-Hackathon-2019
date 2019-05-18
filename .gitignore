@@ -1,0 +1,17 @@
+.idea/
+.vscode/
+.DS_Store
+front/node_modules/
+front/build
+front/*.tgz
+*.tgz
+front/my-app*
+my-app*
+front/template/src/__tests__/__snapshots__/
+front/lerna-debug.log
+front/npm-debug.log*
+front/yarn-debug.log*
+front/yarn-error.log*
+front/.changelog
+front/.npm/
+.npm/

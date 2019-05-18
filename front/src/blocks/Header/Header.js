@@ -10,7 +10,7 @@ import { withGetScreen } from 'react-getscreen';
 class Header extends React.Component {
   render() {
     const { className, isMobile } = this.props;
-    const isAuth = false;
+    const isAuth = true;
 
     return (
       <Container

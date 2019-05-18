@@ -15,14 +15,11 @@
 @import "src/blocks/Card/Card.scss";
 @import "src/components/AuthorizationPopup/AuthorizationPopup.scss";
 @import "src/components/CustomCheckbox/CustomCheckbox.scss";
-<<<<<<< Updated upstream
 @import "src/blocks/Comments/Comments.scss";
 @import "src/components/CommentForm/CommentForm.scss";
 @import "src/components/Comment/Comment.scss";
-=======
 @import "src/components/SingleCardComponents/SingleCardWrapper/SingleCardWrapper.scss";
 @import "src/components/SingleCardComponents/FloatingCard/FloatingCard.scss";
->>>>>>> Stashed changes
 
 @import "src/assets/fonts/Inter/inter.scss";
 
@@ -31,12 +28,9 @@
 @include Card();
 @include AuthorizationPopup();
 @include CustomCheckbox();
-<<<<<<< Updated upstream
 @include Comments();
 @include CommentForm();
-=======
 @include SingleCardWrapper();
->>>>>>> Stashed changes
 
 body {
   background-color: #F0F0F0;

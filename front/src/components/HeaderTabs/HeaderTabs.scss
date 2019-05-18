@@ -1,0 +1,18 @@
+@mixin HeaderTabs(
+  $tabs-wrapper-class: 'tabs-wrapper',
+  $tabs-class: 'tab-button',
+  $marginBetween: 24px,
+) {
+  .#{$tabs-class}:not(:first-child) {
+    margin-left: 24px;
+  }
+
+  @media (max-width: 321px) {
+    .#{$tabs-wrapper-class} {
+      margin-top: 8px;
+    }
+    .#{$tabs-class} span {
+      font-size: 12px;
+    }
+  }
+}

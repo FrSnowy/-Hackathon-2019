@@ -1,6 +1,6 @@
 @mixin Header(
   $className: 'header',
-  $height: 95px,
+  $height: 96px,
   $background-color: white,
 ) {
   .#{$className}-container {
@@ -24,12 +24,42 @@
       font-family: 'Inter';
     }
 
+    .ava-ph {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: gray;
+      float: right;
+    }
+
     a.hoverable-link {
       font-family: 'Inter';
+    }
+
+    &.mobile {
+      background-color: lightgray;
+      &.auth {
+        .row { height: 158px; }
+      }
+      &.not-auth {
+        .row { height: auto; padding-bottom: 16px; }
+      }
+      .logo-wrapper { margin-top: 24px; }
+
+      .ava-ph {
+        width: 96px;
+        height: 96px;
+      }
+
+      .tabs-wrapper {
+        margin: 8px 0;
+      }
     }
   }
 
   @include TabButton();
-  @include WrappedButton($className: 'login-button');
+  @include WrappedButton($className: 'login-button', $width: 123px);
   @include HoverableLink();
+
+  @include HeaderTabs();
 }

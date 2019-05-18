@@ -3,30 +3,27 @@ import Logo from '../../components/Logo/Logo';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import TabButton from '../../components/TabButton/TabButton';
-import WrappedButton from '../../components/WrappedButton/WrappedButton';
-import HoverableLink from '../../components/HoverableLink/HoverableLink';
+import HeaderLogin from '../../components/HeaderLogin/HeaderLogin';
+import HeaderTabs from '../../components/HeaderTabs/HeaderTabs';
+import { withGetScreen } from 'react-getscreen';
 
 class Header extends React.Component {
   render() {
-    const { className } = this.props;
+    const { className, isMobile } = this.props;
+    const isAuth = false;
+
     return (
-      <Container fluid = { true }>
-        <Container className = { `${className || 'header'}-container` }>
+      <Container
+        className = { `${className || 'header'}-container ${isMobile() ? 'mobile' : 'not-mobile'} ${isAuth ? 'auth' : 'not-auth'}` }
+        fluid = { true }
+      >
+        <Container>
           <Row>
-            <Col md={2}>
+            <Col lg={2} md = {2} sm={3} xs = {12} className="logo-wrapper">
               <Logo />
             </Col>
-            <Col md={5}>
-              <TabButton content = "Актуальное" isSelected = {true}/>
-              <TabButton content = "Свежее" isSelected = {false}/>
-              <TabButton content = "Вы подписаны" isSelected = {false}/>
-            </Col>
-            <Col md={5}>
-              <HoverableLink content = "Создать аккаунт"/>
-              <span className = "or-split">или</span>
-              <WrappedButton className = "login-button" content = "Войти"/>
-            </Col>
+            <HeaderTabs isAuth = { isAuth } />
+            <HeaderLogin isAuth = { isAuth } />
           </Row>
         </Container>
       </Container>
@@ -34,4 +31,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default withGetScreen(Header);

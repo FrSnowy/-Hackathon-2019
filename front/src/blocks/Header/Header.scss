@@ -1,0 +1,20 @@
+@mixin Header(
+  $className: 'header',
+  $height: 95px,
+  $background-color: white,
+) {
+  .#{$className}-container {
+    background-color: $background-color;
+
+    .row {
+      height: $height;
+      align-items: center;
+
+      .col-md-10 {
+        height: 100%;
+      }
+    }
+  }
+
+  @include TabButton();
+}

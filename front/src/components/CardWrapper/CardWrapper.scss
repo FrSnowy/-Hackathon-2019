@@ -1,0 +1,7 @@
+@mixin CardWrapper(
+  $className: 'card-wrapper',
+) {
+  .#{$className} {
+    margin-top: 40px;
+  }
+}

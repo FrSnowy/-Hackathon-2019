@@ -1,0 +1,80 @@
+@mixin Card(
+  $columnClass: 'card-column',
+  $className: 'card',
+) {
+  .#{$columnClass} {
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    padding: 0;
+
+    .#{$className} {
+      width: 100%;
+
+      .card-title {
+        font-size: 20px;
+        font-family: 'Inter';
+        font-weight: 600;
+        margin: 20px 0 16px 32px;
+      }
+
+      .card-description {
+        font-size: 14px;
+        margin: 0 0 16px 32px;
+      }
+
+      .card-image {
+        width: 310px;
+        margin: 0 0 16px 32px; 
+      }
+
+      .card-date, .card-position {
+        margin: 0 0 1px 32px;
+        font-size: 14px;
+        vertical-align: baseline;
+
+        img {
+          margin-right: 6px;
+        }
+      }
+
+      .btn.help-button {
+        width: calc(100% - 32px);
+        background-color: #1C1C1C;
+        color: white;
+        margin: 27px 0 24px 32px;
+        outline: none;
+      }
+
+      .author {
+        margin-top: 27px;
+
+        & > div {
+          display: inline-block;
+          vertical-align: top;
+        }
+
+        .info {
+          margin-top: -5px;
+
+          .name {
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Inter';
+          }
+  
+          .date {
+            font-size: 14px;
+            font-weight: 300;
+            color: #666666;
+            margin-top: 5px;
+          }
+        }
+
+        .avatar {
+          margin: -2px 0 0 8px;
+          img { width: 48px; height: 48px; }
+        }
+      }
+    }
+  }
+}

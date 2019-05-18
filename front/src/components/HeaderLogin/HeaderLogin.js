@@ -25,9 +25,9 @@ class HeaderLogin extends React.Component {
     }
     return (
       <Col lg={5} md = {isAuth ? 4 : 6 } sm = {isAuth ? 1 : 4 } xs = {12} className="login-wrapper">
-        <HoverableLink content = "Создать аккаунт"/>
+        <HoverableLink content = "Создать аккаунт" onClick={this.props.onShow}/>
         <span className = "or-split">или</span>
-        <WrappedButton className = "login-button" content = "Войти"/>
+        <WrappedButton className = "login-button" content = "Войти" onClick={this.props.onShow}/>
       </Col>
     )
   }

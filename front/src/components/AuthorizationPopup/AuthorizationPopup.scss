@@ -1,0 +1,90 @@
+@mixin AuthorizationPopup(
+  $className: 'authorization-popup',
+  $width: 440px,
+  $height: 359px,
+  $color: #999
+) {
+  .modal .#{$className} {
+    width: 1140px;
+    margin: 103px auto 0;
+
+    .modal-content {
+      right: -240px;
+      width: $width;
+      height: $height;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+      border: none;
+      border-radius: 4px;
+
+      .modal-body {
+        padding: 40px 60px;
+
+        .form-group {
+          position: relative;
+        }
+
+        .form-control {
+          height: auto;
+          padding: 18px 24px;
+          border-radius: 0;
+          border: 1px solid #E5E5E5;
+          font-size: 14px;
+          color: $color;
+          outline: none;
+          -webkit-appearance: none;
+          transition: box-shadow .3s linear;
+
+          &:focus,
+          &.active {
+            box-shadow: 0 2px 0 #1F1F1F;
+            color: #1F1F1F;
+
+            & + .toggle-password-visibility {
+              background: url("assets/eye_off-hover.svg") no-repeat;
+
+              &.active {
+                background: url("assets/eye.svg") no-repeat;
+              }
+            }
+          }
+        }
+
+        .toggle-password-visibility {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          width: 24px;
+          height: 24px;
+          background: url("assets/eye_off.svg") no-repeat;
+        }
+
+        .invalid-password {
+          position: absolute;
+          top: -34px;
+          left: 0;
+          color: #FF4141;
+          font-size: 12px;
+        }
+
+        .control-account {
+          margin: 40px 0 34px;
+        }
+
+        .hoverable-link {
+          float: right;
+          border-bottom: 1px solid;
+        }
+      }
+    }
+  }
+  @include HoverableLink($color: #666, $hover-color: #1F1F1F, $font-size: 14px);
+  @include WrappedButton(
+          $className: 'enter-button',
+          $width: 100%,
+          $background-color: #1F1F1F,
+          $border-color: #1F1F1F,
+          $color: #FFF,
+          $hover-color: #1F1F1F,
+          $hover-background-color: transparent
+  );
+}

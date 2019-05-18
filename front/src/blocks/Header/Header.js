@@ -6,11 +6,29 @@ import Col from 'react-bootstrap/Col';
 import HeaderLogin from '../../components/HeaderLogin/HeaderLogin';
 import HeaderTabs from '../../components/HeaderTabs/HeaderTabs';
 import { withGetScreen } from 'react-getscreen';
+import AuthorizationPopup from '../../components/AuthorizationPopup/AuthorizationPopup';
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      show: false,
+    };
+  }
+
+  handleClose = () => {
+    this.setState({ show: false });
+  };
+
+  handleShow = () => {
+    this.setState({ show: true });
+  };
+
+
   render() {
     const { className, isMobile } = this.props;
-    const isAuth = true;
+    const isAuth = false;
 
     return (
       <Container
@@ -23,9 +41,10 @@ class Header extends React.Component {
               <Logo />
             </Col>
             <HeaderTabs isAuth = { isAuth } />
-            <HeaderLogin isAuth = { isAuth } />
+            <HeaderLogin isAuth = { isAuth } onShow={this.handleShow} />
           </Row>
         </Container>
+        <AuthorizationPopup show={this.state.show} onHide={this.handleClose} />
       </Container>
     );
   }

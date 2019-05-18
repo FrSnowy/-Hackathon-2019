@@ -1,0 +1,49 @@
+@mixin CommentForm(
+  $padding: 24px 0 6px
+){
+  .comment-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $padding;
+    font-family: "Inter", sans-serif;
+
+    .user-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: grey;
+    }
+
+    .comment-textfield {
+      height: 42px;
+      max-height: 150px;
+      width: calc(100% - 42px - 12px - 12px - 24px);
+      padding: 10px 24px;
+      border: 1px solid #E5E5E5;
+      border-radius: 4px;
+      color: #666;
+      outline: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      resize: none;
+      appearance: none;
+
+      &:focus {
+        color: #1F1F1F;
+      }
+    }
+
+    .send-comment {
+      width: 24px;
+      height: 24px;
+      background: url("assets/img/send-comment.svg") no-repeat;
+      cursor: pointer;
+
+      &.active {
+        background: url("assets/img/send-comment-active.svg") no-repeat;
+      }
+    }
+  }
+}

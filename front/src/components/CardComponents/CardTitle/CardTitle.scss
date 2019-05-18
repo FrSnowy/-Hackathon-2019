@@ -1,0 +1,11 @@
+@mixin CardTitle(
+  $className: 'card-title',
+  $font-size: 20px,
+) {
+  .#{$className} {
+    font-size: $font-size;
+    font-family: 'Inter';
+    font-weight: 600;
+    margin: 20px 0 16px 32px;
+  }
+}

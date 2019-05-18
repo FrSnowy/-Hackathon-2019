@@ -3,7 +3,15 @@
 @import "src/components/WrappedButton/WrappedButton.scss";
 @import "src/components/HoverableLink/HoverableLink.scss";
 @import "src/components/HeaderTabs/HeaderTabs.scss";
-@import "src/components/CardWrapper/CardWrapper.scss";
+@import "src/components/CardComponents/CardWrapper/CardWrapper.scss";
+@import "src/components/CardComponents/CardTitle/CardTitle.scss";
+@import "src/components/CardComponents/CardDescription/CardDescription.scss";
+@import "src/components/CardComponents/CardPhoto/CardPhoto.scss";
+@import "src/components/CardComponents/CardDate/CardDate.scss";
+@import "src/components/CardComponents/CardPosition/CardPosition.scss";
+@import "src/components/CardComponents/CardFooter/CardFooter.scss";
+@import "src/components/CardComponents/CardHelpButton/CardHelpButton.scss";
+@import "src/components/CardComponents/CardSubscribers/CardSubscribers.scss";
 @import "src/blocks/Card/Card.scss";
 @import "src/components/AuthorizationPopup/AuthorizationPopup.scss";
 @import "src/components/CustomCheckbox/CustomCheckbox.scss";

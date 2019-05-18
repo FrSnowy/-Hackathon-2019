@@ -1,0 +1,14 @@
+@mixin CardDate(
+  $className: 'card-date',
+  $font-size: 14px,
+) {
+  .#{$className} {
+    margin: 0 0 1px 32px;
+    font-size: $font-size;
+    vertical-align: baseline;
+
+    img {
+      margin-right: 6px;
+    }
+  }
+}

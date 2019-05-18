@@ -1,6 +1,6 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
-import Card from '../../blocks/Card/Card';
+import Card from '../../../blocks/Card/Card';
 
 class CardRow extends React.Component {
   render() {

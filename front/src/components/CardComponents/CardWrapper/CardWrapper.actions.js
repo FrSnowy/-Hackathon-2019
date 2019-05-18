@@ -14,6 +14,13 @@ const CardsActions = {
           name: 'Игорь',
           avatar: 'https://cs8.pikabu.ru/avatars/1784/v1784930-1708360418.png',
         },
+        subscribers: [{
+          profile: '',
+          avatar: 'https://cs8.pikabu.ru/avatars/1784/v1784930-1708360418.png',
+        }, {
+          profile: '',
+          avatar: 'https://cs8.pikabu.ru/avatars/1784/v1784930-1708360418.png',
+        }]
       }],
     }
   },

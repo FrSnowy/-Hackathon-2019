@@ -1,0 +1,15 @@
+@mixin CardSubscribers(
+  $className: 'card-subscribers',
+) {
+  .#{$className} {
+    & > *:first-child {
+      margin: 27px 0 24px 32px;
+    }
+
+    span {
+      font-family: 'Inter';
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+}

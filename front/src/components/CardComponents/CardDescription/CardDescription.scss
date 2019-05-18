@@ -1,0 +1,9 @@
+@mixin CardDescription(
+  $className: 'card-description',
+  $font-size: 14px,
+) {
+  .#{$className} {
+    font-size: $font-size;
+    margin: 0 24px 16px 32px;
+  }
+}

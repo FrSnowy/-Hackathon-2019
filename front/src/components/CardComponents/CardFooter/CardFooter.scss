@@ -1,0 +1,50 @@
+@mixin CardFooter(
+  $className: 'card-downpart',
+) {
+  .#{$className} {
+    @include CardHelpButton();
+    @include CardSubscribers();
+
+    .read-more {
+      color: #666666;
+      cursor: pointer;
+    }
+  
+    .author {
+      margin: 27px 24px 24px 0;
+      float: right;
+
+      &.large {
+        margin-top: 0 !important;
+      }
+  
+      & > div {
+        display: inline-block;
+        vertical-align: top;
+      }
+  
+      .info {
+        margin-top: -5px;
+        margin-right: 4px;
+  
+        .name {
+          font-size: 16px;
+          font-weight: 600;
+          font-family: 'Inter';
+        }
+  
+        .date {
+          font-size: 14px;
+          font-weight: 300;
+          color: #666666;
+          margin-top: 2px;
+        }
+      }
+  
+      .avatar {
+        margin: 0 0 0 8px;
+        img { width: 38px; height: 38px; }
+      }
+    }
+  }
+}

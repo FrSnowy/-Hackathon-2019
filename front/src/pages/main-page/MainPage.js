@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../../blocks/Header/Header';
-import CardWrapper from '../../components/CardWrapper/CardWrapper';
+import CardWrapper from '../../components/CardComponents/CardWrapper/CardWrapper';
 
 function MainPage() {
   return (

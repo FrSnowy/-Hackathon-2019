@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
-import CardRow from '../CardRow/CardRow';
 import CardsActions from './CardWrapper.actions';
+import CardRow from '../CardRow/CardRow';
 
 class CardWrapper extends React.Component {
   constructor(props) {

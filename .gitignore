@@ -27,3 +27,4 @@ front/.npm/
 !/back/urber/storage/.keep
 .byebug_history
 /back/urber/config/master.key
+/back/urber/config/env.yml

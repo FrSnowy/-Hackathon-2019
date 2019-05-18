@@ -35,5 +35,14 @@ module Urber
     config.api_only = true
     config.time_zone = 'Ekaterinburg'
     config.action_mailer.default_url_options = {}
+
+    config.before_configuration do
+      env_file = File.join(Rails.root, 'config', 'env.yml')
+      if File.exist?(env_file)
+        YAML.safe_load(File.open(env_file)).each do |key, value|
+          ENV[key.to_s] = value
+        end
+      end
+    end
   end
 end

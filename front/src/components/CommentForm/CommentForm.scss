@@ -1,5 +1,5 @@
 @mixin CommentForm(
-  $padding: 16px
+  $padding: 24px 0 6px
 ){
   .comment-form {
     display: flex;
@@ -29,6 +29,10 @@
       box-shadow: none;
       resize: none;
       appearance: none;
+
+      &:focus {
+        color: #1F1F1F;
+      }
     }
 
     .send-comment {

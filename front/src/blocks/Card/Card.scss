@@ -3,8 +3,6 @@
   $className: 'card',
 ) {
   .#{$columnClass} {
-    padding: 0;
-
     .#{$className} {
       width: 100%;
       border: 1px solid #E0E0E0;

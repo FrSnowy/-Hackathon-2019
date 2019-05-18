@@ -7,34 +7,56 @@ import iconLocation from '../../assets/img/location.svg';
 
 class Card extends React.Component {
   render() {
-    const { content, className, columnClass } = this.props;
+    const { content, className, columnClass, isLarge } = this.props;
+
+    let shortenDescription = null;
+    let readMore = null;
+
+    if (!isLarge) {
+      const parsedDescription = content.description.split(' ');
+      const MAX_DESCRIPTION_WORD_LENGTH = 10;
+  
+      if (parsedDescription.length > MAX_DESCRIPTION_WORD_LENGTH) {
+        shortenDescription = parsedDescription
+          .filter((_, i) => i <= MAX_DESCRIPTION_WORD_LENGTH)
+          .join(' ') + ' ';
+        readMore = <a className = "read-more">читать дальше</a>;
+      } else {
+        shortenDescription = content.description;
+      }
+    }   
 
     return (
-      <Col md={4} className = { columnClass || 'card-column' }>
+      <Col md={isLarge ? 8 : 4} className = { columnClass || 'card-column' }>
         <div className = {className || 'card' }>
           <Row>
             <Col md = {12}> <div className = 'card-title'>{ content.title }</div></Col>
           </Row>
           <Row>
-            <Col md = {12}> <div className = 'card-description'>{ content.description }</div></Col>
-          </Row>
-          <Row>
             <Col md = {12}>
-              <img src = {content.img} alt = "Фото" className = "card-image"/>
+              <div className = 'card-description'>
+                { isLarge ? content.description : shortenDescription }
+                { isLarge ? readMore : null }
+              </div>
             </Col>
           </Row>
           <Row>
             <Col md = {12}>
-              <span class = "card-date">
-                <img src = {iconTime}/>
+              <img src = {content.img} alt = "Фото" className = {`card-image ${isLarge ? 'card-image-large' : ''}`}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col md = {12}>
+              <span className = "card-date">
+                <img src = {iconTime} alt = "Дата"/>
                 { content.date }
               </span>
             </Col>
           </Row>
           <Row>
             <Col md = {12}>
-              <span class = "card-position">
-                <img src = {iconLocation}/>
+              <span className = "card-position">
+                <img src = {iconLocation} alt = "Место"/>
                 { content.place }              
               </span>
             </Col>
@@ -50,7 +72,7 @@ class Card extends React.Component {
                   <div className = "date">1 день назад</div>
                 </div>
                 <div className = "avatar">
-                  <img src = {content.author.avatar}/>
+                  <img src = {content.author.avatar} alt = {content.author.name}/>
                 </div>
               </div>
             </Col>

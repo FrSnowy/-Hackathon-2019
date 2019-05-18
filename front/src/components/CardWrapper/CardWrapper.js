@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import CardRow from '../CardRow/CardRow';
+import CardsActions from './CardWrapper.actions';
 
 class CardWrapper extends React.Component {
   constructor(props) {
@@ -25,7 +27,13 @@ class CardWrapper extends React.Component {
   }
 
   render() {
-    const { cards, className } = this.props;
+    const { cards, className, recieveCards } = this.props;
+
+    if (!cards) {
+      recieveCards();
+      return null;
+    }
+
     const chunkedCards = this.makeChunks(cards, 3);
     const cardRows = chunkedCards.map((chunk, i) => <CardRow key = { i } cards = { chunk }/>)
 
@@ -39,4 +47,14 @@ class CardWrapper extends React.Component {
   }
 }
 
-export default CardWrapper;
+const mapStateToProps = store => ({
+  cards: store.cards.cards
+});
+
+const mapDispatchToProps = dispatch => ({
+  recieveCards: (startID, count) => dispatch(
+    CardsActions.recieveCards(startID, count)
+  ),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardWrapper);

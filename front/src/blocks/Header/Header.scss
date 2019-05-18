@@ -14,7 +14,22 @@
         height: 100%;
       }
     }
+
+    .or-split {
+      margin: 0 24px;
+      color: #666666;
+    }
+
+    button.login-button {
+      font-family: 'Inter';
+    }
+
+    a.hoverable-link {
+      font-family: 'Inter';
+    }
   }
 
   @include TabButton();
+  @include WrappedButton($className: 'login-button');
+  @include HoverableLink();
 }

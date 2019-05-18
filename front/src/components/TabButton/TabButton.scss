@@ -2,7 +2,7 @@
   $className: 'tab-button',
   $background-color: transparent,
 ) {
-  .tab-button {
+  .#{$className} {
     display: inline-flex;
     height: 100%;
     align-items: center;

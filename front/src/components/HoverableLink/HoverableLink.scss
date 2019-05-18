@@ -1,0 +1,16 @@
+@mixin HoverableLink(
+  $className: 'hoverable-link',
+  $color: black,
+  $hover-color: rgb(100, 100, 100),
+  $font-size: 16px,
+) {
+  a.#{$className} {
+    color: $color !important;
+    font-size: 16px;
+
+    &:hover {
+      cursor: pointer;
+      color: $hover-color !important;
+    }
+  }
+}

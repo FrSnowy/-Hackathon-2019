@@ -6,6 +6,7 @@
 @import "src/components/CardWrapper/CardWrapper.scss";
 @import "src/blocks/Card/Card.scss";
 @import "src/components/AuthorizationPopup/AuthorizationPopup.scss";
+@import "src/components/CustomCheckbox/CustomCheckbox.scss";
 
 @import "src/assets/fonts/Inter/inter.scss";
 
@@ -13,6 +14,7 @@
 @include CardWrapper();
 @include Card();
 @include AuthorizationPopup();
+@include CustomCheckbox();
 
 body {
   background-color: #F0F0F0;

@@ -1,14 +1,58 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import HoverableLink from '../HoverableLink/HoverableLink';
 import WrappedButton from '../../components/WrappedButton/WrappedButton';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import CustomCheckbox from '../../components/CustomCheckbox/CustomCheckbox';
 
 export default class AuthorizationPopup extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      type: 'password',
+      emailValue: '',
+      passwordValue: '',
+      invalidPassword: false,
+    };
+  }
+
+  toggleVisibility = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    this.setState({
+      type: this.state.type === 'input' ? 'password' : 'input'
+    });
+
+    event.target.classList.toggle('active');
+  };
+
+  updateEmailValue = (event) => {
+    const element = event.target;
+
+    this.setState({
+      inputValue: element.value
+    });
+
+    element.classList.toggle('active', element.value.length);
+  };
+
+  updatePasswordValue = (event) => {
+    const element = event.target;
+
+    this.setState({
+      inputValue: element.value
+    });
+
+    element.classList.toggle('active', element.value.length);
+  };
+
   render() {
+    const {type, emailValue, passwordValue, invalidPassword} = this.state;
+
     return (
       <Modal {...this.props}
              size="md"
@@ -18,23 +62,37 @@ export default class AuthorizationPopup extends React.Component {
         <Modal.Body>
           <Form>
             <Form.Group controlId="formBasicEmail">
-              <Form.Control type="email" placeholder="Введите e-mail" />
+              <Form.Control
+                type="email"
+                placeholder="Введите e-mail"
+                className={emailValue.length && 'active'}
+                onChange={this.updateEmailValue}
+              />
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-              <Form.Control type="password" placeholder="**********" />
+              <Form.Control
+                type={type}
+                placeholder="**********"
+                className={passwordValue.length && 'active'}
+                onChange={this.updatePasswordValue}/>
+              <div className="toggle-password-visibility" onClick={this.toggleVisibility}/>
             </Form.Group>
-            <Form.Group controlId="formBasicChecbox">
+
+            <Form.Group controlId="formBasicChecbox" className="control-account">
               <Row>
                 <Col md={6}>
-                  <Form.Check type="checkbox" label="Запомнить меня" />
+                  <CustomCheckbox id="unchecked" label="Запомнить меня"/>
                 </Col>
                 <Col md={6}>
                   <HoverableLink content = "Забыли пароль?" />
                 </Col>
               </Row>
+              {invalidPassword && <div className="invalid-password">Неверный пароль</div>}
             </Form.Group>
+
             <WrappedButton className = "enter-button" content = "Войти"/>
+
           </Form>
         </Modal.Body>
       </Modal>

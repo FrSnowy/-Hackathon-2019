@@ -1,0 +1,6 @@
+ru:
+  exceptions:
+    auth:
+      used_email: Пользователь с таким email уже зарегистрирован!
+      wrong_email: Пользователя с таким email нет
+      wrong_password: Неверный пароль

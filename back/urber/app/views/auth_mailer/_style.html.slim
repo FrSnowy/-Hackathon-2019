@@ -1,0 +1,25 @@
+- content_for :style do
+  sass:
+    body
+      color: #333
+
+    a
+      &:link,
+      &:visited,
+      &:hover,
+      &:active
+        color: #1e65b3
+        text-decoration: none
+      &:hover
+        color: #0453ab
+
+    p
+      font-size: 16px
+
+    .delimiter
+      font-size: 18px
+      vertical-align: bottom
+
+    .code
+      font-size: 24px
+      font-weight: bold

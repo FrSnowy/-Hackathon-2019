@@ -1,3 +1,7 @@
 ru:
   mailer:
-    from_name: 'urber.dev'
+    from_name: urber.dev
+  auth_mailer:
+    welcome_password:
+      subject: ':-) Добро пожаловать!'
+      body: 'Для следующего входа вы можете использовать пароль:'

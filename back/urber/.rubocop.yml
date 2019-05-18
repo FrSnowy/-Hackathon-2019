@@ -22,6 +22,8 @@ Layout/SpaceInsideHashLiteralBraces:
 Metrics/BlockLength:
   Exclude:
     - config/environments/development.rb
+    - lib/extensions/active_record/base.rb
+    - lib/extensions/active_record/migration/command_recorder.rb
 
 Metrics/ClassLength:
   Enabled: false
@@ -37,3 +39,6 @@ Metrics/ModuleLength:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/Lambda:
+  EnforcedStyle: literal

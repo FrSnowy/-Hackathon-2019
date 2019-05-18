@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_18_143400) do
+ActiveRecord::Schema.define(version: 2019_05_18_111125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
+
+  create_table "users", force: :cascade do |t|
+    t.citext "email", null: false
+    t.string "password_digest", limit: 255, null: false
+    t.citext "name"
+    t.string "phone", limit: 15
+    t.citext "contacts"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "c_unique_users_on_email", unique: true
+  end
 
 end

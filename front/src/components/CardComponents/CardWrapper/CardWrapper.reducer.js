@@ -8,7 +8,6 @@ const CardsReducer = (state = initialState, action) => {
   const { type } = action;
   switch (type) {
     case (constants.recieveCards):
-      console.log(action);
       return { state, cards: action.cards }
     default: return state;
   }

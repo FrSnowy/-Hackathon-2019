@@ -1,6 +1,5 @@
 import React from 'react';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
 
 class CardSubscribers extends React.Component {
   render() {
@@ -14,8 +13,23 @@ class CardSubscribers extends React.Component {
       )
     }
 
+    let subscribersImages = [];
+
+    if (subscribers.length === 1) {
+      subscribersImages.push(subscribers[0].avatar)
+    } else {
+      [0, 1].forEach(i => subscribersImages.push(subscribers[i].avatar))
+    }
+
+    const subscribersImagesView = subscribersImages.map(
+      (img, i) => <img key = { i } src = {img} alt = "Подписчик" className = {`subscriber-avatar avatar-${i}`}/>
+    )
+
     return (
       <Col md = {6} className = {className || 'card-subscribers'}>
+        <div className = "subscribers-images">
+          { subscribersImagesView }
+        </div>
         <span>{subscribers.length} {subscribers.length === 1 ? 'собирается' : 'собираются'} помочь</span>
       </Col>
     );

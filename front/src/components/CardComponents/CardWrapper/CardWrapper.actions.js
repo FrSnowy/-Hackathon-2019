@@ -16,10 +16,10 @@ const CardsActions = {
         },
         subscribers: [{
           profile: '',
-          avatar: 'https://cs8.pikabu.ru/avatars/1784/v1784930-1708360418.png',
+          avatar: 'https://images.unsplash.com/photo-1511424187101-2aaa60069357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=740&q=80',
         }, {
           profile: '',
-          avatar: 'https://cs8.pikabu.ru/avatars/1784/v1784930-1708360418.png',
+          avatar: 'https://images.unsplash.com/photo-1511424187101-2aaa60069357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=740&q=80',
         }]
       }],
     }

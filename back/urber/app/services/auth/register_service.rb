@@ -9,7 +9,7 @@ module Auth
 
       user = create_user
       send_password
-      FinalizeAuthenticationService.new(user).call
+      EncodePayloadService.new(user).call
     end
 
     private

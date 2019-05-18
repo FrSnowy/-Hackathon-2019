@@ -2,8 +2,8 @@ module API
   module V1
     class UsersController < APIController
       def create
-        user = Auth::RegisterService.new(email).call
-        created(user)
+        token = Auth::RegisterService.new(email).call
+        created(token: token)
       end
 
       def update

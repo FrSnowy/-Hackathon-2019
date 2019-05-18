@@ -2,15 +2,19 @@ module API
   module V1
     module Responsable
       def ok(object)
-        response(:ok, object)
+        json_response(:ok, object)
       end
 
       def created(object)
-        response(:created, object)
+        json_response(:created, object)
       end
 
       def bad_request(errors)
         response_error(:bad_request, errors)
+      end
+
+      def unauthorized(errors)
+        response_error(:unauthorized, errors)
       end
 
       def not_found(errors)
@@ -22,12 +26,12 @@ module API
       end
 
       def unprocessable(errors)
-        response_errors(:unprocessable_entity, errors)
+        response_error(:unprocessable_entity, errors)
       end
 
       private
 
-      def response(status, object)
+      def json_response(status, object)
         render json: object, status: status
       end
 
@@ -38,7 +42,7 @@ module API
         else
           object[:errors] = errors
         end
-        response(status, object)
+        json_response(status, object)
       end
     end
   end

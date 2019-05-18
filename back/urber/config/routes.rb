@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
+      resources :events, only: %i[index create show update destroy]
+      resource :sessions, only: :create
+
       resource :users, only: %i[create update destroy] do
         get :check_email
-        post :authenticate
       end
     end
   end

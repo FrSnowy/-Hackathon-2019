@@ -2,13 +2,8 @@ module API
   module V1
     class SessionsController < APIController
       def create
-        AuthenticateService.new(email, password).call
-        head :ok
-      end
-
-      def destroy
-        DeauthenticateService.new.call
-        head :ok
+        token = Auth::AuthenticateService.new(email, password).call
+        ok(token: token)
       end
 
       private

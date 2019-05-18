@@ -1,5 +1,5 @@
 module Auth
-  class AuthenticateService < ApplicationService
+  class AuthenticateService
     def initialize(email, password)
       @email = email.strip_special_chars
       @password = password
@@ -9,7 +9,7 @@ module Auth
       verify_email
       verify_password
 
-      FinalizeAuthenticationService.new(user).call
+      EncodePayloadService.new(user).call
     end
 
     private

@@ -6,6 +6,7 @@ import CardPhoto from '../../components/CardComponents/CardPhoto/CardPhoto';
 import CardDate from '../../components/CardComponents/CardDate/CardDate';
 import CardPosition from '../../components/CardComponents/CardPosition/CardPosition';
 import CardFooter from '../../components/CardComponents/CardFooter/CardFooter';
+import Comments from '../Comments/Comments';
 
 class Card extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class Card extends React.Component {
           { isLarge || <CardPosition place = { content.place } />}
           <CardFooter author = { content.author } isLarge = { isLarge } subscribers = { content.subscribers }/>
         </div>
+        <Comments/>
       </Col>
     );
   }

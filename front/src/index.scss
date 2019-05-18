@@ -15,6 +15,8 @@
 @import "src/blocks/Card/Card.scss";
 @import "src/components/AuthorizationPopup/AuthorizationPopup.scss";
 @import "src/components/CustomCheckbox/CustomCheckbox.scss";
+@import "src/blocks/Comments/Comments.scss";
+@import "src/components/CommentForm/CommentForm.scss";
 
 @import "src/assets/fonts/Inter/inter.scss";
 
@@ -23,6 +25,8 @@
 @include Card();
 @include AuthorizationPopup();
 @include CustomCheckbox();
+@include Comments();
+@include CommentForm();
 
 body {
   background-color: #F0F0F0;

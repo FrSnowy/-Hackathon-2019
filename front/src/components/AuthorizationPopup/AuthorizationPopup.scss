@@ -40,10 +40,10 @@
             color: #1F1F1F;
 
             & + .toggle-password-visibility {
-              background: url("assets/eye_off-hover.svg") no-repeat;
+              background: url("assets/img/eye_off-hover.svg") no-repeat;
 
               &.active {
-                background: url("assets/eye.svg") no-repeat;
+                background: url("assets/img/eye.svg") no-repeat;
               }
             }
           }
@@ -55,7 +55,7 @@
           right: 16px;
           width: 24px;
           height: 24px;
-          background: url("assets/eye_off.svg") no-repeat;
+          background: url("assets/img/eye_off.svg") no-repeat;
         }
 
         .invalid-password {

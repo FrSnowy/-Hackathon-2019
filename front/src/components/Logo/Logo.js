@@ -1,9 +1,9 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/img/logo.svg';
 
 function Logo() {
   return (
-    <img src = {logo} alt = "Логотипи"/>
+    <img src = {logo} alt = "Логотип"/>
   );
 }
 

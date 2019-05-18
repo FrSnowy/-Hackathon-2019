@@ -12,7 +12,7 @@ const Comment = props => {
   return (
     <div className="comment" id={id}>
       <div className="comment-author">
-        <img className="comment-avatar" url={url} alt="Аватар"/>
+        <img className="comment-avatar" src={url} alt="Аватар"/>
         <div className="comment-name">{author}</div>
         <div className="comment-date">{today.getUTCDate() === messageDate.getUTCDate() ? time : day}</div>
       </div>

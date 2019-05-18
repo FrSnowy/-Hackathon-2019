@@ -53,7 +53,7 @@ export default class CommentForm extends React.Component {
 
     return (
       <div className="comment-form">
-        <img className="user-avatar" url="" alt="Аватар"/>
+        <img className="user-avatar" src="https://oss.adm.ntu.edu.sg/a150018/wp-content/uploads/sites/289/2016/02/cat1_1.png" alt="Аватар"/>
         <textarea
           className={`comment-textfield ${hasValue ? 'active' : ''}`}
           ref={this.textField}

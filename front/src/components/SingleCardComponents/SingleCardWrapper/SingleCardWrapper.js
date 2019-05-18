@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Card from '../../../blocks/Card/Card';
 import CardsActions from '../../CardComponents/CardWrapper/CardWrapper.actions';
 import FloatingCard from '../FloatingCard/FloatingCard';
+import Comments from '../../../blocks/Comments/Comments';
 
 class SingleCardWrapper extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class SingleCardWrapper extends React.Component {
           <Row>
             <Card content = { cards[0] } isLarge = { true }/>
             <FloatingCard/>
+            <Comments isLarge={true} />
           </Row>
         </Container>
       </Container>

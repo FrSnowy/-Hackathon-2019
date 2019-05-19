@@ -7,6 +7,11 @@ class CardDescription extends React.Component {
     super(props);
     this.getShortText = this.getShortText.bind(this);
   }
+
+  shouldComponentUpdate(nextProps) {
+    return nextProps.text !== this.props.text;
+  }
+
   getShortText(text) {
     const parsedDescription = text.split(' ');
     const MAX_DESCRIPTION_WORD_LENGTH = 10;
@@ -34,8 +39,6 @@ class CardDescription extends React.Component {
       shortDescription = this.getShortText(text);
       readMore = <a className = "read-more">читать дальше</a>;
     }
-
-    console.log(readMore);
 
     return (
       <Row>

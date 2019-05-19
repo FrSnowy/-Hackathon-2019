@@ -28,7 +28,8 @@ class Header extends React.Component {
 
 
   render() {
-    const { className, isMobile, isLoggedIn: isAuth } = this.props;
+    const { className, isMobile, token } = this.props;
+    const isAuth = token !== null;
 
     return (
       <Container
@@ -51,7 +52,7 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = store => ({
-  isLoggedIn: store.app.isLoggedIn,
+  token: store.app.token,
 });
 
 export default connect(mapStateToProps)(withGetScreen(Header));

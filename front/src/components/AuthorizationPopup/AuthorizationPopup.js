@@ -6,8 +6,10 @@ import WrappedButton from '../../components/WrappedButton/WrappedButton';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CustomCheckbox from '../../components/CustomCheckbox/CustomCheckbox';
+import { connect } from 'react-redux';
+import AppActions from '../App/App.actions';
 
-export default class AuthorizationPopup extends React.Component {
+class AuthorizationPopup extends React.Component {
   constructor(props) {
     super(props);
 
@@ -16,7 +18,10 @@ export default class AuthorizationPopup extends React.Component {
       emailValue: '',
       passwordValue: '',
       invalidPassword: false,
+      visible: true,
     };
+
+    this.hide = this.hide.bind(this);
   }
 
   toggleVisibility = (event) => {
@@ -29,6 +34,12 @@ export default class AuthorizationPopup extends React.Component {
 
     event.target.classList.toggle('active');
   };
+
+  hide() {
+    this.setState({
+      visible: false,
+    });
+  }
 
   updateEmailValue = (event) => {
     const element = event.target;
@@ -44,7 +55,7 @@ export default class AuthorizationPopup extends React.Component {
     const element = event.target;
 
     this.setState({
-      inputValue: element.value
+      passwordValue: element.value
     });
 
     element.classList.toggle('active', element.value.length);
@@ -52,10 +63,12 @@ export default class AuthorizationPopup extends React.Component {
 
   render() {
     const {type, emailValue, passwordValue, invalidPassword} = this.state;
+    const { sendAuthRequest } = this.props;
 
     return (
       <Modal {...this.props}
              size="md"
+             className = { this.state.visible ? '' : 'hidden' }
              dialogClassName="authorization-popup"
              aria-labelledby="example-custom-modal-styling-title"
       >
@@ -91,7 +104,11 @@ export default class AuthorizationPopup extends React.Component {
               {invalidPassword && <div className="invalid-password">Неверный пароль</div>}
             </Form.Group>
 
-            <WrappedButton className = "enter-button" content = "Войти"/>
+            <WrappedButton
+              className = "enter-button"
+              content = "Войти"
+              onClick = {() => sendAuthRequest(this.state.inputValue, this.state.passwordValue, this.hide)}
+            />
 
           </Form>
         </Modal.Body>
@@ -99,3 +116,14 @@ export default class AuthorizationPopup extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  sendAuthRequest: (login, password, hide) => {
+    hide();
+    dispatch(
+      AppActions.sendAuthRequest(login, password)
+    )
+  },
+});
+
+export default connect(null, mapDispatchToProps)(AuthorizationPopup);

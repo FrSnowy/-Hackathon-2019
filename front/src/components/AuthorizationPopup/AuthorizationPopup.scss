@@ -4,6 +4,11 @@
   $height: 359px,
   $color: #999
 ) {
+
+  .hidden {
+    display: none !important;
+  }
+
   .modal .#{$className} {
     width: 1140px;
     margin: 103px auto 0;

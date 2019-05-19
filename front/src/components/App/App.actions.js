@@ -1,4 +1,5 @@
 import constants from "./App.constants";
+const request = require('request');
 
 const AppActions = {
   login: () => {
@@ -12,6 +13,18 @@ const AppActions = {
       type: constants.logout,
       isLoggedIn: false,
     }
+  },
+  sendAuthRequest: (email, password) => dispatch => {
+    request.post({
+      url: constants.REQUEST_URL + "api/v1/sessions",
+      form: {user: { email, password }}
+    }, (err, response) => {
+      const { token } = JSON.parse(response.body);
+      if (token) dispatch({
+        type: constants.saveToken,
+        token,
+      })
+    });
   }
 };
 

@@ -6,20 +6,20 @@ import AddPostButton from '../../components/AddPostButton/AddPostButton';
 
 class MainPage extends React.Component {
   render() {
-    const { isLoggedIn } = this.props;
+    const { token } = this.props;
 
     return (
       <div className="main-page">
         <Header/>
         <CardWrapper />
-        { isLoggedIn ? <AddPostButton/> : null }
+        { token !== null ? <AddPostButton/> : null }
       </div>
     );
   }
 }
 
 const mapStateToProps = store => ({
-  isLoggedIn: store.app.isLoggedIn,
+  token: store.app.token,
 });
 
 export default connect(mapStateToProps)(MainPage);

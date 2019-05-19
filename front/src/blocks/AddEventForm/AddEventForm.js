@@ -9,7 +9,7 @@ const request = require('request');
 class AddEventForm extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       title: '',
       description: '',
@@ -64,12 +64,12 @@ class AddEventForm extends React.Component {
     e.preventDefault();
     this.setState( { adress: e.target.value });
   }
-  
+
 
   sendCreateCardRequest (title, description, img, adress, meetingLocation) {
     if (!title || !description || !img || !adress || !meetingLocation) return false;
     request.post({
-      url: "https://quicksolutionsurber.herokuapp.com/api/v1/events",
+      url: "https://urber-api.herokuapp.com/api/v1/events",
       headers: {
         'Authorization': this.props.token
       },

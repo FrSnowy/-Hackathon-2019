@@ -12,7 +12,7 @@ const request = require('request');
 class Card extends React.Component {
   subscribe() {
     request.post({
-      url: "https://quicksolutionsurber.herokuapp.com/api/v1/subscriptions",
+      url: "https://urber-api.herokuapp.com/api/v1/subscriptions",
       headers: {
         'Authorization': this.props.token
       },

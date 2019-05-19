@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_19_014017) do
+ActiveRecord::Schema.define(version: 2019_05_19_032735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2019_05_19_014017) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.datetime "completed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "event_id"], name: "c_unique_subscriptions_on_user_id_and_event_id", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.citext "email", null: false
     t.string "password_digest", limit: 255, null: false
@@ -62,4 +71,6 @@ ActiveRecord::Schema.define(version: 2019_05_19_014017) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "events", "users", name: "fk_events_on_user_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "subscriptions", "events", name: "fk_subscriptions_on_event_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "subscriptions", "users", name: "fk_subscriptions_on_user_id", on_update: :cascade, on_delete: :cascade
 end

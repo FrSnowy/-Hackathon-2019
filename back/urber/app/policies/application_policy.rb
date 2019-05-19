@@ -38,6 +38,12 @@ class ApplicationPolicy
     user
   end
 
+  def owner?
+    return false unless authorized?
+
+    record.user_id == user.id
+  end
+
   class Scope
     attr_reader :user, :scope
 

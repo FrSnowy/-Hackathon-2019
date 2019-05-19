@@ -7,4 +7,6 @@ class Event < ApplicationRecord
   validates :user, presence: true
 
   belongs_to :user
+  has_many :subscriptions
+  has_many :subscribed_users, through: :subscriptions, source: :user
 end

@@ -1,0 +1,1 @@
+class NilClassPolicy < ApplicationPolicy; end

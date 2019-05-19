@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../../components/Logo/Logo';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import { connect } from 'react-redux';
 import Col from 'react-bootstrap/Col';
 import HeaderLogin from '../../components/HeaderLogin/HeaderLogin';
 import HeaderTabs from '../../components/HeaderTabs/HeaderTabs';
@@ -27,8 +28,7 @@ class Header extends React.Component {
 
 
   render() {
-    const { className, isMobile } = this.props;
-    const isAuth = false;
+    const { className, isMobile, isLoggedIn: isAuth } = this.props;
 
     return (
       <Container
@@ -50,4 +50,8 @@ class Header extends React.Component {
   }
 }
 
-export default withGetScreen(Header);
+const mapStateToProps = store => ({
+  isLoggedIn: store.app.isLoggedIn,
+});
+
+export default connect(mapStateToProps)(withGetScreen(Header));

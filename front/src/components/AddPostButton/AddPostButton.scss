@@ -1,0 +1,32 @@
+@mixin AddPostButton(
+  $className: 'add-new-post',
+  $size: 112px,
+  $background-color: #26CB5C,
+  $right: 70px,
+  $bottom: 70px,
+) {
+  .#{$className} {
+    position: fixed;
+    width: $size;
+    height: $size;
+    background-color: #26CB5C;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, .2);
+    font-size: 48px;
+    text-align: center;
+    line-height: $size;
+
+    border-radius: 50%;
+    color: white;
+
+    right: $right;
+    bottom: $bottom;
+
+    transition: box-shadow 0.1s linear;
+
+    &:hover {
+      color: white !important;
+      text-decoration: none !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .3);
+    }
+  }
+}

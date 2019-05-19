@@ -1,7 +1,7 @@
 @mixin Header(
   $className: 'header',
   $height: 96px,
-  $background-color: white,
+  $background-color: #26CB5C,
 ) {
   .#{$className}-container {
     background-color: $background-color;
@@ -17,7 +17,7 @@
 
     .or-split {
       margin: 0 24px;
-      color: #666666;
+      color: #FFFFFF;
     }
 
     button.login-button {

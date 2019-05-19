@@ -11,7 +11,13 @@
       font-family: 'Inter';
       font-size: 16px;
       font-weight: bold;
-      color: #666666;
+      color: #FFFFFF;
+      opacity: 0.82;
+      transition: opacity .1s linear;
+
+      &:hover {
+        opacity: 1;
+      }
 
       line-height: 40px;
       letter-spacing: 0.04em;
@@ -19,7 +25,8 @@
 
     &.selected {
       span {
-        color: #1C1C1C;
+        color: #FFFFFF;
+        opacity: 1;
       }
     }
   }

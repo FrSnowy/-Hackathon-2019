@@ -12,7 +12,7 @@ class CardFooter extends React.Component {
   }
 
   getFooter(isLarge) {
-    return isLarge ? null : <CardHelpButton text = "Я помогу" />
+    return isLarge ? null : <CardHelpButton text = "Я помогу!" />
   }
 
   getSubscribers(isLarge) {

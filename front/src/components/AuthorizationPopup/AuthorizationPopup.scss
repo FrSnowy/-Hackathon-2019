@@ -77,7 +77,7 @@
       }
     }
   }
-  @include HoverableLink($color: #666, $hover-color: #1F1F1F, $font-size: 14px);
+  @include HoverableLink($color: #DBFBFB, $hover-color: #FFFFFF, $font-size: 14px);
   @include WrappedButton(
           $className: 'enter-button',
           $width: 100%,

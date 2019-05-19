@@ -35,12 +35,14 @@ class CardDescription extends React.Component {
       readMore = <a className = "read-more">читать дальше</a>;
     }
 
+    console.log(readMore);
+
     return (
       <Row>
         <Col md = {12}>
           <div className = {className || 'card-description'}>
             { isLarge ? text : shortDescription }
-            { isLarge ? readMore : null }
+            { isLarge ? null : readMore }
           </div>
         </Col>
       </Row>

@@ -3,16 +3,18 @@
   $width: 134px,
   $height: 51px,
   $background-color: transparent,
-  $border-color: black,
-  $color: black,
+  $border-color: white,
+  $color: white,
   $hover-color: white,
-  $hover-background-color: $border-color,
+  $hover-background-color: transparent,
   $font-size: 16px,
 ) {
   button.#{$className} {
     background-color: $background-color;
     border: 2px solid $border-color;
     color: $color;
+
+    opacity: 0.82;
 
     width: $width;
     height: $height;
@@ -33,6 +35,7 @@
       background-color: $hover-background-color;
       border-color: $border-color;
       color: $hover-color;
+      opacity: 1;
     }
   }
 }

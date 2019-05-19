@@ -4,7 +4,7 @@ const constants = {
   saveToken: 'SAVE_TOKEN',
   sendAuthRequest: 'SEND_AUTH_REQUEST',
   sendRegisterRequest: 'SEND_REGISTER_REQUEST',
-  REQUEST_URL: 'http://10.34.32.70:3000/',
+  REQUEST_URL: 'https://quicksolutionsurber.herokuapp.com/',
   PROXY_URL: 'https://cors-anywhere.herokuapp.com/',
 };
 

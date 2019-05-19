@@ -2,7 +2,7 @@
   $className: 'card-image',
 ) {
   .#{$className} {
-    height: 214px;
+    width: calc(100% - 52px);
     margin: 0 0 16px 32px;
   }
 }

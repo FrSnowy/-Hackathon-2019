@@ -17,7 +17,7 @@ class CardDate extends React.Component {
             </span>
           </Col>
         </Row>
-      );      
+      );
     } else return null;
   }
 }

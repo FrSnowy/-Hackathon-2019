@@ -155,7 +155,7 @@ class AddEventForm extends React.Component {
                     content = "Добавить"
                     onClick = {() => {
                       const  { title, description, img, country, city, place, adress } = this.state;
-                      const completeAdress = `${country} ${city} ${adress}`;
+                      const completeAdress = `${country}, ${city}, ${adress}`;
                       this.sendCreateCardRequest(title, description, img, completeAdress, place);
                     }}
                   />

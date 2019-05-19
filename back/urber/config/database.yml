@@ -20,9 +20,6 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
-  host: <%= ENV.fetch('DATABASE_HOST') %>
-  username: <%= ENV.fetch('DATABASE_USERNAME') %>
-  password: <%= ENV.fetch('DATABASE_PASSWORD') %>
 
 development:
   <<: *default
@@ -83,6 +80,8 @@ test:
 #
 production:
   <<: *default
-  database: urber
-  username: urber
-  password: <%= ENV['URBER_DATABASE_PASSWORD'] %>
+  database: 'd5dhdibkgn7j1d'
+  host: 'ec2-54-227-245-146.compute-1.amazonaws.com'
+  username: 'yqmhqhhlmplnqg'
+  password: 'cc06dea0e0a09af012a0c6af261f464f6372053158c5e42164a096a0cc3b7688'
+  port: 5432

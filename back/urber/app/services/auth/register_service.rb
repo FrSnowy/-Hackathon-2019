@@ -34,7 +34,7 @@ module Auth
     end
 
     def send_password
-      AuthMailer.welcome_password(@email, password).deliver_later
+      # AuthMailer.welcome_password(@email, password).deliver_later
     end
   end
 end

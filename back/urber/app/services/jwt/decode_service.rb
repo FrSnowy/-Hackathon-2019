@@ -18,7 +18,7 @@ module JWT
     private
 
     def secret_key
-      Rails.application.secrets.secret_key_base
+      'custom_key'
     end
   end
 end

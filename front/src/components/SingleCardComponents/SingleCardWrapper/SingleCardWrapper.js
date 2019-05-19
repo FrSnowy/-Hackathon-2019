@@ -39,7 +39,7 @@ class SingleCardWrapper extends React.Component {
         const card = JSON.parse(resp.body);
         this.setState({ currentCard: card })
       });
-      
+
       if (this.state.currentCard === null) return <div />
       else return (
         <Container fluid = { true } className = { className || 'single-card-wrapper' }>

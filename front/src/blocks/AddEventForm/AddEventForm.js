@@ -67,6 +67,7 @@ class AddEventForm extends React.Component {
   
 
   sendCreateCardRequest (title, description, img, adress, meetingLocation) {
+    if (!title || !description || !img || !adress || !meetingLocation) return false;
     request.post({
       url: "http://10.34.32.70:3000/api/v1/events",
       headers: {

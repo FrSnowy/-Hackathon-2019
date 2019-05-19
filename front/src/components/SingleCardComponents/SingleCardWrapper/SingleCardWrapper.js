@@ -38,7 +38,7 @@ class SingleCardWrapper extends React.Component {
       request.get(`http://10.34.32.70:3000/api/v1/events/${currentID}`, (err, resp) => {
         const card = JSON.parse(resp.body);
         this.setState({ currentCard: card })
-      })
+      });
       
       if (this.state.currentCard === null) return <div />
       else return (

@@ -8,7 +8,7 @@ class CardHelpButton extends React.Component {
 
     return (
       <Col md = {md || 6}>
-        <Button className = {className || 'help-button'}>{text}</Button>
+        <Button className = {className || 'help-button'} onClick = { () => this.props.subscribe ? this.props.subscribe() : null}>{text}</Button>
       </Col>
     );
   }

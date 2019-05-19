@@ -2,7 +2,7 @@
   $className: 'single-card-wrapper'
 ) {
   .#{$className} {
-    margin-top: 40px;
+    margin-top: 10px;
     @include Card();
     @include FloatingCard();
   }

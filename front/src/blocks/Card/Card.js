@@ -6,8 +6,19 @@ import CardPhoto from '../../components/CardComponents/CardPhoto/CardPhoto';
 import CardDate from '../../components/CardComponents/CardDate/CardDate';
 import CardPosition from '../../components/CardComponents/CardPosition/CardPosition';
 import CardFooter from '../../components/CardComponents/CardFooter/CardFooter';
+import { connect } from 'react-redux';
+const request = require('request');
 
 class Card extends React.Component {
+  subscribe() {
+    request.post({
+      url: "https://quicksolutionsurber.herokuapp.com/api/v1/subscriptions",
+      headers: {
+        'Authorization': this.props.token
+      },
+      form: { event: { id: this.props.content.id }}
+    })
+  }
   render() {
     const { content, className, columnClass, isLarge } = this.props;
 
@@ -19,11 +30,15 @@ class Card extends React.Component {
           <CardPhoto isLarge = { isLarge } image = { content.photo_link } />
           { isLarge || <CardDate date = { content.date } /> }
           { isLarge || <CardPosition place = { content.place } />}
-          <CardFooter author = { content.author } isLarge = { isLarge } subscribers = { content.subscribers }/>
+          <CardFooter author = { content.author } isLarge = { isLarge } subscribers = { content.subscribers } subscribe = {this.subscribe.bind(this)}/>
         </div>
       </Col>
     );
   }
 }
 
-export default Card;
+const mapStateToProps = store => ({
+  token: store.app.token
+});
+
+export default connect(mapStateToProps)(Card);

@@ -27,9 +27,6 @@ class CardSubscribers extends React.Component {
 
     return (
       <Col md = {6} className = {className || 'card-subscribers'}>
-        <div className = "subscribers-images">
-          { subscribersImagesView }
-        </div>
         <span>{subscribers.length} {subscribers.length === 1 ? 'собирается' : 'собираются'} помочь</span>
       </Col>
     );

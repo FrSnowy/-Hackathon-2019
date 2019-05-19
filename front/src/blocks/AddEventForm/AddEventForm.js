@@ -74,7 +74,7 @@ class AddEventForm extends React.Component {
         'Authorization': this.props.token
       },
       form: { event: { title, description, photo_link: img, location: adress, meetingLocation }}
-    }, (err, res) => console.log(res))
+    }, (err, res) => window.location.replace('/'))
   }
 
 

@@ -43,7 +43,7 @@ class CardWrapper extends React.Component {
         </Container>
       )
     } else {
-      const chunkedCards = this.makeChunks(cards, 3);
+      const chunkedCards = this.makeChunks(cards.sort((cardA, cardB) => cardA.id - cardB.id), 3);
       console.log(cards);
       const cardRows = chunkedCards.map((chunk, i) => <CardRow key = { i } cards = { chunk }/>)
 

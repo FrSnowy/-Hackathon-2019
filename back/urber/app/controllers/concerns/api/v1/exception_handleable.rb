@@ -11,6 +11,10 @@ module API
         rescue_from ActiveRecord::RecordInvalid do |error|
           unprocessable(error.message)
         end
+
+        rescue_from Pundit::NotAuthorizedError do |error|
+          unauthorized(error.message)
+        end
       end
     end
   end

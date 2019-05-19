@@ -9,12 +9,6 @@ module API
         before_action :set_current_user
       end
 
-      protected
-
-      def authorize
-        head :forbidden unless current_user
-      end
-
       private
 
       def set_current_user

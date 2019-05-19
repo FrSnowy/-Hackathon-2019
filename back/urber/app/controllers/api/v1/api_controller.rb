@@ -5,6 +5,7 @@ module API
       include ExceptionHandleable
       include AuthExceptionHandleable
       include TokenAuthenticatable
+      include Pundit
     end
   end
 end

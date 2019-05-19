@@ -4,10 +4,6 @@ module API
       extend ActiveSupport::Concern
 
       included do
-        rescue_from Auth::UnauthorizedException do |error|
-          unauthorized(error.message)
-        end
-
         rescue_from Auth::UsedEmail do |error|
           conflict(error.message)
         end

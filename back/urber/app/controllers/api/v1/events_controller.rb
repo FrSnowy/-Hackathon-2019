@@ -10,15 +10,15 @@ module API
         meeting_at
       ].freeze
 
-      before_action :authorize, only: %i[create update destroy]
-      before_action :verify_owner, only: %i[update destroy]
-
       def index
-        ok(Event.all)
+        ok(events)
       end
 
       def create
-        Event.create!(event_params.merge(user_id: current_user.id))
+        authorize new_event
+
+        new_event.assign_attributes(event_params.merge(user_id: current_user.id))
+        new_event.save!
         head :ok
       end
 
@@ -27,19 +27,27 @@ module API
       end
 
       def update
+        authorize event
+
         event.update!(event_params)
         head :ok
       end
 
       def destroy
+        authorize event
+
         event.destroy!
         head :ok
       end
 
       private
 
-      def verify_owner
-        head :forbidden if event.user_id != current_user.id
+      def events
+        @events ||= Event.all
+      end
+
+      def new_event
+        @new_event ||= Event.new
       end
 
       def event

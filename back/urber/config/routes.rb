@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
       resource :users, only: %i[create update destroy] do
         get :check_email
+        post :reset_password
       end
     end
   end

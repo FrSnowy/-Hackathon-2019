@@ -17,10 +17,15 @@ module API
         head status
       end
 
+      def reset_password
+        Auth::ResetPasswordService.new(email).call
+        head :ok
+      end
+
       private
 
       def email
-        @email ||= params.require(:user).permit(:email).fetch(:email)
+        @email ||= params.require(:user).require(:email)
       end
     end
   end

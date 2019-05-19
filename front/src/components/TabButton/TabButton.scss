@@ -7,6 +7,10 @@
     height: 100%;
     align-items: center;
 
+    &:hover {
+      text-decoration: none;
+    }
+
     span {
       font-family: 'Inter';
       font-size: 16px;
@@ -23,7 +27,7 @@
       letter-spacing: 0.04em;
     }
 
-    &.selected {
+    .selected {
       span {
         color: #FFFFFF;
         opacity: 1;

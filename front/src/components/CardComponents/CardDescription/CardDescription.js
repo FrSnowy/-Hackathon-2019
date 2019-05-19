@@ -1,6 +1,7 @@
 import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { Link } from 'react-router-dom';
 
 class CardDescription extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class CardDescription extends React.Component {
 
     if (!isLarge) {
       shortDescription = this.getShortText(text);
-      readMore = <a className = "read-more">читать дальше</a>;
+      readMore = <Link to = "/card" className ="read-more-link">читать дальше</Link>;
     }
 
     return (

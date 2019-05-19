@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class TabButton extends React.Component {
   constructor(props) {
@@ -8,11 +9,13 @@ class TabButton extends React.Component {
   }
 
   render() {
-    const { className, content, isSelected } = this.props;
+    const { className, content, isSelected, to } = this.props;
     return (
-      <div className = {`${className || 'tab-button'} ${isSelected ? 'selected' : 'active'}`}>
-        <span>{ content } </span>
-      </div>
+      <Link to = { to } className = {`${className || 'tab-button'}`}>
+        <div className = {`${isSelected ? 'selected' : 'active'}`}>
+          <span>{ content } </span>
+        </div>
+      </Link>
     )
   }
 }

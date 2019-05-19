@@ -7,5 +7,10 @@
     .map-frame {
       margin-bottom: 12px;
     }
+
+    a {
+      pointer-events: none !important;
+      cursor: default;
+    }
   }
 }

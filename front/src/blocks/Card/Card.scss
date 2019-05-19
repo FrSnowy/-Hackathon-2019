@@ -8,6 +8,10 @@
       border: 1px solid #E0E0E0;
       border-radius: 4px;
 
+      a {
+        text-decoration: none;
+      }
+
       @include CardTitle();
       @include CardDescription();
       @include CardPhoto();

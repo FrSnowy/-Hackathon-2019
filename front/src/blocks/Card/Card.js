@@ -14,7 +14,7 @@ class Card extends React.Component {
     return (
       <Col md={isLarge ? 8 : 4} className = { columnClass || 'card-column' }>
         <div className = {className || 'card' }>
-          <CardTitle text = { content.title } />
+          <CardTitle text = { content.title } isLarge = {isLarge}/>
           <CardDescription text = { content.description } isLarge = { isLarge } />
           <CardPhoto isLarge = { isLarge } image = { content.img } />
           { isLarge || <CardDate date = { content.date } /> }

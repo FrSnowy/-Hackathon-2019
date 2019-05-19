@@ -21,6 +21,7 @@
 @import "src/components/SingleCardComponents/SingleCardWrapper/SingleCardWrapper.scss";
 @import "src/components/SingleCardComponents/FloatingCard/FloatingCard.scss";
 @import "src/components/AddPostButton/AddPostButton.scss";
+@import "src/blocks/AddEventForm/AddEventForm";
 
 @import "src/assets/fonts/Inter/inter.scss";
 
@@ -33,6 +34,7 @@
 @include CommentForm();
 @include SingleCardWrapper();
 @include AddPostButton();
+@include AddEventForm();
 
 body {
   background-color: #F0F0F0;

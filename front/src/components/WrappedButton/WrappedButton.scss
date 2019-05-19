@@ -8,6 +8,7 @@
   $hover-color: white,
   $hover-background-color: transparent,
   $font-size: 16px,
+  $font-weight: normal
 ) {
   button.#{$className} {
     background-color: $background-color;
@@ -20,6 +21,7 @@
     height: $height;
 
     font-size: 16px;
+    font-weight: $font-weight;
 
     &:active {
       background-color: $hover-background-color !important;

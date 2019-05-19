@@ -1,7 +1,7 @@
 @mixin HoverableLink(
   $className: 'hoverable-link',
-  $color: black,
-  $hover-color: rgb(100, 100, 100),
+  $color: #fff,
+  $hover-color: #fff,
   $font-size: 16px,
 ) {
   a.#{$className} {

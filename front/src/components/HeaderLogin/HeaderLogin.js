@@ -5,6 +5,11 @@ import HoverableLink from '../HoverableLink/HoverableLink';
 import { withGetScreen } from 'react-getscreen';
 ;
 class HeaderLogin extends React.Component {
+  handleClick = (event) => {
+    this.props.onShow(event.target.dataset.mode)
+    console.log(event.target.dataset.mode)
+  };
+
   render() {
     const { isTablet, isMobileOnly, isAuth } = this.props;
 
@@ -25,9 +30,14 @@ class HeaderLogin extends React.Component {
     }
     return (
       <Col lg={5} md = {isAuth ? 4 : 6 } sm = {isAuth ? 1 : 4 } xs = {12} className="login-wrapper">
-        <HoverableLink content = "Создать аккаунт" onClick={this.props.onShow}/>
+        <HoverableLink content = "Создать аккаунт" onClick={this.handleClick} dataMode="register"/>
         <span className = "or-split">или</span>
-        <WrappedButton className = "login-button" content = "Войти" onClick={this.props.onShow}/>
+        <WrappedButton
+          className = "login-button"
+          content = "Войти"
+          onClick={this.handleClick}
+          dataMode="auth"
+        />
       </Col>
     )
   }

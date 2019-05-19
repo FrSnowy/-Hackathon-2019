@@ -63,7 +63,7 @@ class AuthorizationPopup extends React.Component {
 
   render() {
     const {type, emailValue, passwordValue, invalidPassword} = this.state;
-    const { sendAuthRequest } = this.props;
+    const {mode, sendAuthRequest} = this.props;
 
     return (
       <Modal {...this.props}
@@ -82,32 +82,32 @@ class AuthorizationPopup extends React.Component {
                 onChange={this.updateEmailValue}
               />
             </Form.Group>
+            {mode === 'auth' && (<div><Form.Group controlId="formBasicPassword">
+                <Form.Control
+                  type={type}
+                  placeholder="**********"
+                  className={passwordValue.length && 'active'}
+                  onChange={this.updatePasswordValue}/>
+                <div className="toggle-password-visibility" onClick={this.toggleVisibility}/>
+              </Form.Group>
 
-            <Form.Group controlId="formBasicPassword">
-              <Form.Control
-                type={type}
-                placeholder="**********"
-                className={passwordValue.length && 'active'}
-                onChange={this.updatePasswordValue}/>
-              <div className="toggle-password-visibility" onClick={this.toggleVisibility}/>
-            </Form.Group>
+              <Form.Group controlId="formBasicChecbox" className="control-account">
+                <Row>
+                  <Col md={6}>
+                    <CustomCheckbox id="unchecked" label="Запомнить меня"/>
+                  </Col>
+                  <Col md={6}>
+                    <HoverableLink content = "Забыли пароль?" className="auth-link"/>
+                  </Col>
+                </Row>
+                {invalidPassword && <div className="invalid-password">Неверный пароль</div>}
+              </Form.Group></div>)}
 
-            <Form.Group controlId="formBasicChecbox" className="control-account">
-              <Row>
-                <Col md={6}>
-                  <CustomCheckbox id="unchecked" label="Запомнить меня"/>
-                </Col>
-                <Col md={6}>
-                  <HoverableLink content = "Забыли пароль?" />
-                </Col>
-              </Row>
-              {invalidPassword && <div className="invalid-password">Неверный пароль</div>}
-            </Form.Group>
 
             <WrappedButton
               className = "enter-button"
-              content = "Войти"
-              onClick = {() => sendAuthRequest(this.state.inputValue, this.state.passwordValue, this.hide)}
+              content = {mode === 'auth' ? "Войти" : "Продолжить"}
+              onClick = {() => sendAuthRequest(this.state.inputValue, this.state.passwordValue, this.hide)}  
             />
 
           </Form>

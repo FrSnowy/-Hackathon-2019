@@ -1,7 +1,7 @@
 @mixin AuthorizationPopup(
   $className: 'authorization-popup',
   $width: 440px,
-  $height: 359px,
+  $height: auto,
   $color: #999
 ) {
 
@@ -41,7 +41,6 @@
 
           &:focus,
           &.active {
-            box-shadow: 0 2px 0 #1F1F1F;
             color: #1F1F1F;
 
             & + .toggle-password-visibility {
@@ -75,21 +74,28 @@
           margin: 40px 0 34px;
         }
 
-        .hoverable-link {
+        .auth-link {
           float: right;
           border-bottom: 1px solid;
+        }
+
+        .enter-button.disabled {
+          background: #E5E5E5;
+          color: #888888;
+          border-color: #E5E5E5;
         }
       }
     }
   }
-  @include HoverableLink($color: #DBFBFB, $hover-color: #FFFFFF, $font-size: 14px);
+  @include HoverableLink($className: "auth-link", $color: #26CB5C, $hover-color: #37CF69, $font-size: 14px);
   @include WrappedButton(
           $className: 'enter-button',
           $width: 100%,
-          $background-color: #1F1F1F,
-          $border-color: #1F1F1F,
+          $background-color: #26CB5C,
+          $border-color: #26CB5C,
           $color: #FFF,
-          $hover-color: #1F1F1F,
-          $hover-background-color: transparent
+          $hover-color: #26CB5C,
+          $hover-background-color: transparent,
+          $font-weight: 600
   );
 }

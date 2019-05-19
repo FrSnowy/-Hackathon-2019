@@ -34,16 +34,29 @@ class CardWrapper extends React.Component {
       return null;
     }
 
-    const chunkedCards = this.makeChunks(cards, 3);
-    const cardRows = chunkedCards.map((chunk, i) => <CardRow key = { i } cards = { chunk }/>)
-
-    return (
-      <Container fluid = { true } className = { className || 'card-wrapper' }>
-        <Container>
-          { cardRows }
+    if (cards === 'no-server') {
+      return (
+        <Container fluid = { true } className = { className || 'card-wrapper' }>
+          <Container>
+            <span style = {{ fontSize: 196, color: 'red' }}>SERVER NOT RESPONDING</span>
+          </Container>
         </Container>
-      </Container>
-    );
+      )
+    } else {
+      const chunkedCards = this.makeChunks(cards, 3);
+      console.log(cards);
+      const cardRows = chunkedCards.map((chunk, i) => <CardRow key = { i } cards = { chunk }/>)
+
+      return (
+        <Container fluid = { true } className = { className || 'card-wrapper' }>
+          <Container>
+            { cardRows }
+          </Container>
+        </Container>
+      );
+    }
+
+    
   }
 }
 

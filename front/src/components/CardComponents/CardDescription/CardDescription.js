@@ -38,7 +38,7 @@ class CardDescription extends React.Component {
 
     if (!isLarge) {
       shortDescription = this.getShortText(text);
-      readMore = <Link to = "/card" className ="read-more-link">читать дальше</Link>;
+      readMore = <Link to = {`/card/${this.props.id}`} className ="read-more-link">читать дальше</Link>;
     }
 
     return (
@@ -46,7 +46,7 @@ class CardDescription extends React.Component {
         <Col md = {12}>
           <div className = {className || 'card-description'}>
             { isLarge ? text : shortDescription }
-            { isLarge ? null : readMore }
+            { isLarge ? readMore : null }
           </div>
         </Col>
       </Row>

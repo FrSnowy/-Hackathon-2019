@@ -6,27 +6,54 @@ import Card from '../../../blocks/Card/Card';
 import CardsActions from '../../CardComponents/CardWrapper/CardWrapper.actions';
 import FloatingCard from '../FloatingCard/FloatingCard';
 import Comments from '../../../blocks/Comments/Comments';
+const request = require('request');
 
 class SingleCardWrapper extends React.Component {
-  render() {
-    const { cards, className, recieveCards } = this.props;
+  constructor(props) {
+    super(props);
 
-    if (!cards || cards.length !== 1) {
-      recieveCards();
-      return null;
+    this.state = {
+      currentCard: null,
+    }
+  }
+  render() {
+    const { cards, className } = this.props;
+
+    const id = window.location.href.split('/');
+    const currentID = id[id.length - 1];
+
+    if (cards) {
+      return (
+        <Container fluid = { true } className = { className || 'single-card-wrapper' }>
+          <Container>
+            <Row>
+              <Card content = { cards[currentID - 1] } isLarge = { true }/>
+              <FloatingCard/>
+              <Comments isLarge={true} />
+            </Row>
+          </Container>
+        </Container>
+      );
+    } else {
+      request.get(`http://10.34.32.70:3000/api/v1/events/${currentID}`, (err, resp) => {
+        const card = JSON.parse(resp.body);
+        this.setState({ currentCard: card })
+      })
+      
+      if (this.state.currentCard === null) return <div />
+      else return (
+        <Container fluid = { true } className = { className || 'single-card-wrapper' }>
+          <Container>
+            <Row>
+              <Card content = { this.state.currentCard } isLarge = { true }/>
+              <FloatingCard/>
+              <Comments isLarge={true} />
+            </Row>
+          </Container>
+        </Container>
+      )
     }
 
-    return (
-      <Container fluid = { true } className = { className || 'single-card-wrapper' }>
-        <Container>
-          <Row>
-            <Card content = { cards[0] } isLarge = { true }/>
-            <FloatingCard/>
-            <Comments isLarge={true} />
-          </Row>
-        </Container>
-      </Container>
-    );
   }
 }
 

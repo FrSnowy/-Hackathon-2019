@@ -1,14 +1,22 @@
 import React from 'react';
 import AddEventForm from '../../blocks/AddEventForm/AddEventForm';
 import Header from '../../blocks/Header/Header';
+import { connect } from 'react-redux';
 
-function AddEventPage() {
-  return (
-    <div className="add-event-page">
-      <Header/>
-      <AddEventForm />
-    </div>
-  );
+class AddEventPage extends React.Component {
+  render() {
+    const { token } = this.props;
+    return (
+      <div className="add-event-page">
+        <Header/>
+        <AddEventForm />
+      </div>
+    );
+  }
 }
 
-export default AddEventPage;
+const mapStateToProps = store => ({
+  token: store.app.token,
+});
+
+export default connect(mapStateToProps)(AddEventPage);

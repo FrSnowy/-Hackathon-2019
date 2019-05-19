@@ -63,7 +63,7 @@ class AuthorizationPopup extends React.Component {
 
   render() {
     const {type, emailValue, passwordValue, invalidPassword} = this.state;
-    const {mode, sendAuthRequest} = this.props;
+    const {mode, sendAuthRequest, sendRegisterRequest} = this.props;
 
     return (
       <Modal {...this.props}
@@ -107,7 +107,10 @@ class AuthorizationPopup extends React.Component {
             <WrappedButton
               className = "enter-button"
               content = {mode === 'auth' ? "Войти" : "Продолжить"}
-              onClick = {() => sendAuthRequest(this.state.inputValue, this.state.passwordValue, this.hide)}  
+              onClick = {() => {
+                if (mode === 'auth') sendAuthRequest(this.state.inputValue, this.state.passwordValue, this.hide)
+                else sendRegisterRequest(this.state.inputValue, this.hide);
+            }}  
             />
 
           </Form>
@@ -124,6 +127,12 @@ const mapDispatchToProps = dispatch => ({
       AppActions.sendAuthRequest(login, password)
     )
   },
+  sendRegisterRequest: (email, hide) => {
+    hide();
+    dispatch(
+      AppActions.sendRegisterRequest(email)
+    )
+  }
 });
 
 export default connect(null, mapDispatchToProps)(AuthorizationPopup);

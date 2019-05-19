@@ -25,6 +25,18 @@ const AppActions = {
         token,
       })
     });
+  },
+  sendRegisterRequest: (email) => dispatch => {
+    request.post({
+      url: constants.REQUEST_URL + "api/v1/users",
+      form: { user: { email }}
+    }, (err, response) => {
+      const { token } = JSON.parse(response.body);
+      if (token) dispatch({
+        type: constants.saveToken,
+        token,
+      });
+    })
   }
 };
 

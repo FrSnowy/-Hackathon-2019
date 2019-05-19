@@ -12,6 +12,8 @@
         text-decoration: none;
       }
 
+      margin-top: 30px;
+
       @include CardTitle();
       @include CardDescription();
       @include CardPhoto();

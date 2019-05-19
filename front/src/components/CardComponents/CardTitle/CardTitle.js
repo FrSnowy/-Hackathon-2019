@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 
 class CardTitle extends React.Component {
   render() {
-    const { className, text, isLarge } = this.props;
+    const { className, text, id, isLarge } = this.props;
     if (!isLarge) {
       return (
         <Row>
           <Col md = {12}>
-            <Link to = '/card'>
+            <Link to = {`/card/${id}`}>
               <div className = {className || 'card-title'}>{ text }</div>
             </Link>
           </Col>

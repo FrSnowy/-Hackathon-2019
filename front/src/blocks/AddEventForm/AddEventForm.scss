@@ -7,5 +7,7 @@
     border-radius: 4px;
     border: 1px solid #E0E0E0;
     background: #FFF;
+
+    @include WrappedButton($className: 'add-event-button', $border-color:  #26CB5C, $color: #26CB5C, $hover-background-color: #26CB5C)
   }
 }

@@ -8,9 +8,9 @@ class HoverableLink extends React.Component {
   }
 
   render() {
-    const { className, content, onClick } = this.props;
+    const { className, content, onClick, dataMode } = this.props;
     return (
-      <a className = {className || 'hoverable-link'} onClick = { onClick || null}>{content}</a>
+      <a className = {className || 'hoverable-link'} onClick = { onClick || null} data-mode={dataMode || null}>{content}</a>
     )
   }
 }

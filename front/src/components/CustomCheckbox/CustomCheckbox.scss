@@ -1,18 +1,19 @@
 @mixin CustomCheckbox(
-  $color__text: #999,
+  $color__text: #1F1F1F,
   $checkbox__size: 20px,
   $switch__size: $checkbox__size,
   $color__back: #fff,
-  $color__back-high: #1f1f1f,
+  $color__back-high: #1F1F1F,
   $checkbox__border__size: 2px,
   $checkbox__border__color: #E5E5E5,
-  $checkbox__checkmark__color: $color__back-high,
-  $checkbox__label__color: $color__text,
+  $checkbox__checkmark__color: #1F1F1F,
+  $checkbox__label__color: #26CB5C,
   $checkbox__label__color--disabled: $color__text
 ){
   .checkbox {
     display: flex;
     align-items: center;
+    font-family: "Inter", sans-serif;
 
     &:hover {
       .checkbox__label {
@@ -20,7 +21,7 @@
       }
 
       .checkbox__input {
-        border-color: $color__back-high;
+        border-color: $checkbox__label__color;
       }
     }
 
@@ -57,11 +58,11 @@
         bottom: 50%;
         left: 50%;
         transition: all .1s;
-        background: $checkbox__checkmark__color;
+        background: $checkbox__label__color;
       }
 
       &:checked {
-        border-color: $checkbox__checkmark__color;
+        border-color: $checkbox__label__color;
         & + .checkbox__label {
           color: $checkbox__checkmark__color;
         }

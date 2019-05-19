@@ -9,12 +9,13 @@ class WrappedButton extends React.Component {
   }
 
   render() {
-    const { className, content, onClick } = this.props;
+    const { className, content, onClick, dataMode } = this.props;
     return (
       <Button
         variant = "outline-primary"
         className = { className || 'wrapped-button' }
         onClick = { onClick || null }
+        data-mode={dataMode || null}
       >
         {content}
       </Button>

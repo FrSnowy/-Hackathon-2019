@@ -15,6 +15,7 @@ class Header extends React.Component {
 
     this.state = {
       show: false,
+      mode: 'auth'
     };
   }
 
@@ -22,8 +23,8 @@ class Header extends React.Component {
     this.setState({ show: false });
   };
 
-  handleShow = () => {
-    this.setState({ show: true });
+  handleShow = (mode) => {
+    this.setState({ show: true, mode: mode });
   };
 
 
@@ -44,7 +45,7 @@ class Header extends React.Component {
             <HeaderLogin isAuth = { isAuth } onShow={this.handleShow} />
           </Row>
         </Container>
-        <AuthorizationPopup show={this.state.show} onHide={this.handleClose} />
+        <AuthorizationPopup show={this.state.show} onHide={this.handleClose} mode={this.state.mode}/>
       </Container>
     );
   }

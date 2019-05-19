@@ -9,10 +9,9 @@ class CardPhoto extends React.Component {
     return (
       <Row>
         <Col md = {12}>
-          <img
-            src = {image}
-            alt = "Фото"
-            className = {`${className || 'card-image'} ${isLarge ? `${className ? className : 'card-image'}-large` : ''}`}/>
+          <div className = {`image-container ${isLarge ? 'large' : null}`}>
+            <img src = { image } />
+          </div>
         </Col>
       </Row>
     );

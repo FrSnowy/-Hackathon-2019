@@ -10,7 +10,7 @@ const CardsReducer = (state = initialState, action) => {
   const { type } = action;
   switch (type) {
     case (constants.saveCards):
-      return { ...state, cards: action.cards }
+      return { ...state, cards: action.cards.reverse() }
     default: return state;
   }
 }

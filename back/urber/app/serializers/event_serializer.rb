@@ -5,6 +5,7 @@ class EventSerializer < ActiveModel::Serializer
     :id,
     :title,
     :description,
+    :photo_link,
     :location,
     :meeting_location,
     :meeting_at,

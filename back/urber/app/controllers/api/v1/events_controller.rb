@@ -5,6 +5,7 @@ module API
         title
         description
         photo
+        photo_link
         location
         meeting_location
         meeting_at
@@ -42,7 +43,7 @@ module API
       private
 
       def events
-        @events ||= Event.all
+        @events ||= Event.all.includes(:user, :subscriptions, :subscribed_users, :photo_attachment)
       end
 
       def new_event

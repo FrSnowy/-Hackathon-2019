@@ -18,6 +18,7 @@ module API
         authorize new_event
 
         new_event.assign_attributes(event_params.merge(user_id: current_user.id))
+        new_event.photo.attach(event_params[:photo])
         new_event.save!
         head :ok
       end
@@ -30,6 +31,7 @@ module API
         authorize event
 
         event.update!(event_params)
+        event.photo.attach(event_params[:photo])
         head :ok
       end
 
